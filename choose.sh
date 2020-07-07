@@ -1,25 +1,29 @@
-major=`awk '{print $1 }' version.txt`; minor=`awk '{print $2 }' version.txt`; patch=`awk '{print $3 }' version.txt`
+#!/bin/bash
 
-if [ 'patch' = $1 ] 
+major=`awk '{print $1 }' $component.txt` 
+minor=`awk '{print $2 }' $component.txt`
+patch=`awk '{print $3 }' $component.txt`
+
+if [ 'patch' = $version ] 
  then
    patch=$((patch + 1))
-   echo patch increased and VERSION:$major.$minor.$patch
-   echo $major $minor $patch > version.txt
+   echo VERSION:$major.$minor.$patch
+   echo $major $minor $patch > $component.txt
    echo version file updated
- elif [ 'minor' = $1 ]
+ elif [ 'minor' = $version ]
    then
      minor=$((minor + 1))
      patch=0
-     echo minor increased and patch reset to zero and VERSION:$major.$minor.$patch
-     echo $major $minor $patch > version.txt
+     echo VERSION:$major.$minor.$patch
+     echo $major $minor $patch > $component.txt
      echo version file updated
- elif [ 'major' = $1 ]
+ elif [ 'major' = $version ]
    then
      major=$((major + 1))
      minor=0
      patch=0
-     echo major increased and minor, patch reset to zero and VERSION:$major.$minor.$patch
-     echo $major $minor $patch > version.txt
+     echo VERSION:$major.$minor.$patch
+     echo $major $minor $patch > $component.txt
      echo version file updated
  else
      echo version not selected
