@@ -28,3 +28,9 @@ if [ 'patch' = $version ]
  else
      echo version not selected
 fi
+
+## push updated file to central repo ##
+
+# git add $component.txt
+# git commit -m "version updated "
+# git push origin master
