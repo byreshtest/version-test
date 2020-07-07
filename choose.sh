@@ -1,6 +1,15 @@
-######### versioning script start ###########
-
 #!/bin/bash +X
+
+######### checking versioning file existance if not, create and add versioning to file ###########
+
+if [ ! -f $component.txt ]
+  then
+   echo 0 0 0 > $component.txt
+fi
+
+########################## checking versioning file existance is completed ########################
+
+############################# versioning script start #############################################
 
 export major=`awk '{print $1 }' $component.txt` 
 export minor=`awk '{print $2 }' $component.txt`
@@ -33,7 +42,9 @@ fi
 
 ################ versioning script end ##############################
 
-############# committing versioning file to central repo ###########
+export version=$major.$minor.$patch
+
+############# committing versioning file to central repo ############
 
 #git add $component.txt
 
@@ -41,4 +52,4 @@ fi
 
 #git push origin master
 
-########### versioning file committed ###########
+################## versioning file committed #########################
