@@ -1,3 +1,5 @@
+######### versioning script start ###########
+
 #!/bin/bash +X
 
 export major=`awk '{print $1 }' $component.txt` 
@@ -29,8 +31,14 @@ if [ 'patch' = $version ]
      echo version not selected
 fi
 
-## push updated file to central repo ##
+################ versioning script end ##############################
 
-# git add $component.txt
-# git commit -m "version updated "
-# git push origin master
+############# committing versioning file to central repo ###########
+
+#git add $component.txt
+
+#git commit -m " $component.txt file updated with version"
+
+#git push origin master
+
+########### versioning file committed ###########
